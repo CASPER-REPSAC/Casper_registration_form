@@ -1,11 +1,7 @@
 const Discord = require('discord.js');
 const config = require('./config/token.json');
-
 const client = new Discord.Client();
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken)
-
-client.login(config.token);
-
 const sendBot = (title, message) => {
     const embed = new Discord.MessageEmbed()
     .setTitle(title)
@@ -17,8 +13,6 @@ const sendBot = (title, message) => {
         embeds: [embed],
     });
 }
-exports.sendBot = sendBot;
-
 
 client.on('ready', function(){
     console.log(`Logged in as ${client.user.tag}!`);
@@ -32,3 +26,5 @@ client.on('message', function(msg){
 
 
 client.login(config.token); //token login
+
+exports.sendBot = sendBot;
