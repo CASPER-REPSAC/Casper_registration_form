@@ -2,24 +2,27 @@
 <html>
     <!--회원가입정보를 입력하고 제출할 페이지-->
 	<head>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 		<meta charset='utf-8'>
+		<link rel='stylesheet' href='t2.css'>
 	</head>
 	<body>
-		<h2>회원 가입 정보를 입력해주세용^^</h2>
-		<form action="#" method="post">
+		<form action="#" method="post" class='box'>
+			<h1>회원 가입 정보를 입력해주세용^^</h1>
 			<div>
-				<input type='text' value='username' placeholder='실명'>
-			</div>
-			<div>
-				<input type='text' value='userid' placeholder='아이디'>
-			</div>
-			<div class='checkbox'>
-				NAS용 <input type="checkbox" value="true">
-				Wiki용 <input type="checkbox" value='true'>
+				<input type='text' name='username' placeholder='실명'>
 			</div>
 			<div>
-				<input type="button" value="제출">
+				<input type='text' name='userid' placeholder='사용할 아이디'>
 			</div>
-		</form>
+			<div>
+				NAS용<input type="checkbox" value="true">
+				Wiki용<input type="checkbox" value="true">
+			</div>
+			<button type="submit" class="btn">
+				Register
+			</button>		
+		</form>	
 	</body>
 </html>
