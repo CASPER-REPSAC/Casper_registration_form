@@ -5,6 +5,10 @@ const session = require('express-session');
 const router_token_check = require("./router/token_check");
 const router_form = require("./router/form");
 const router_submit = require("./router/submit");
+const bodyParser = require('body-parser');                                                                     
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(session({
     secret: '@#@$MYSIGN#@$#$',
@@ -16,7 +20,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/static"));
 
 app.get("/", (req, res) =>{
-    res.render("index");
+    res.render("check");
 })
 
 app.post('/token_check', router_token_check);

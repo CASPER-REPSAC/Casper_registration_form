@@ -8,7 +8,7 @@ router.get("/form", (req, res) => {
         res.send(html);
         return;
     }
-    res.send("test");
+    res.render("submit");
 });
 
 module.exports = router;
