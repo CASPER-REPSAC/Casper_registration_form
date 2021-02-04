@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+    <!--회원가입정보를 입력하고 제출할 페이지-->
+	<head>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<link rel='stylesheet' href='submit.css'>
+	</head>
+	<body>
+		<img src='images/casperlogo.png' class='logo'>
+		<div class='ghost'>
+			<div class='face'>
+				<div class='eyes'>
+					<span></span><span></span>
+				</div>
+				<div class='mouth'></div>
+			</div>
+			<div class='hands'>
+				<span></span><span></span>
+			</div>
+			<div class='feet'>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div id="shadow"></div>
+		</div>
+		<form action="/submit" method="post" class='box'>
+			<h1>회원 가입 정보를 입력해주세용^^</h1>
+			<div>
+				<input type='text' name='username' placeholder='실명'>
+			</div>
+			<div>
+				<input type='text' name='userid' placeholder='사용할 아이디'>
+			</div>
+			<div>
+				NAS용<input type="checkbox" value="true">
+				Wiki용<input type="checkbox" value="true">
+			</div>
+			<button type="submit" class="btn">
+				Register
+			</button>		
+		</form>	
+		<div id='lockbox'>
+			<div id='lock'>
+			</div>
+		</div>
+	</body>
+</html>
