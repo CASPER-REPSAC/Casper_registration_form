@@ -27,6 +27,7 @@ input::placeholder{
     text-transform: uppercase;
     font-family: 'Gamja Flower', cursive;
     font-weight: 500;
+    font-size: 30px;
 }
 
 .box input[type="text"]{
