@@ -1,8 +1,12 @@
 body{
     margin:0;
-    padding:0;
+    height:100vh;
     background:linear-gradient(#34495E 60%, rgb(66,79 ,111) 40%);
-    font-family:system-ui;
+}
+
+input::placeholder{
+    font-family: 'Gamja Flower', cursive;
+    font-size: 17px;
 }
 
 .box{
@@ -16,12 +20,13 @@ body{
     text-align: center;
     background: #FFFFFF;
     border-radius: 12px;
+    font-family: 'Gamja Flower', cursive;
 }
-.box h2{
+.box h1{
     color:black;
-    font-weight: 500;
     text-transform: uppercase;
-    font-family:sans-serif;
+    font-family: 'Gamja Flower', cursive;
+    font-weight: 500;
 }
 
 .box input[type="text"]{
