@@ -21,6 +21,10 @@ router.post('/submit',(req,res)=>{       //submit 접속 세션 체크
 
         //TODO DB에 데이터 넣기
 
+        /* =======MongoDB Connect====== */
+        db.casper.save({username:username, userid:userid, nas:nas,wiki:wiki, done:false}); 
+        /* ============================ */
+
         let html = "<script>alert('신청이 완료 되었습니다.'); location.href='/form';</script>";
         res.send(html);
     }
