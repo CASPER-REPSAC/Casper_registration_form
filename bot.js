@@ -1,15 +1,12 @@
 const Discord = require('discord.js');
 const config = require('./config/token.json');
 const client = new Discord.Client();
-const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken)
+const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
+const mongoose = require("mongoose");
+
+/*=====Router Modules=====*/
 
 const sendBot = (title, message) => {
-    /*
-        username : ~
-        userid : ~
-        wiki : true
-        nas : ~
-    */
     const embed = new Discord.MessageEmbed()
     .setTitle(title)
     .setColor('#0099ff');
@@ -26,14 +23,14 @@ client.on('ready', function(){
 });
 
 client.on('message', function(msg){
-    if(msg.content[0] === '!'){ //'msg.content' is command in this instance
-        
-        msg.reply('Capser !!!!!!!!!!!!!!');
-        //if(msg.content === )
+    if(msg.content[0] === '>'){ // '>' is command
+        msg.reply("console...");
+    
+        if(msg.content.slice(1)==='apply'){
+            msg.reply("준비 중");
+        }
     }
 });
-
-
 client.login(config.token); //token login
 
 exports.sendBot = sendBot;
