@@ -12,6 +12,7 @@ const router_submit = require("./router/submit");
 /*=====MongoDB Connect=====*/
 let url = "mongodb://127.0.0.1:27017/casperbot";
 mongoose.connect(url, {useNewUrlParser: true});
+/*==========*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
