@@ -69,3 +69,15 @@ input::placeholder{
 .box input[type="submit"]:hover{
     background: #2ecc71;
 }
+
+#footer{
+	position: absolute;
+	top:95%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	font:bold 16px sans-serif;
+}
+#footer a:link { color: #3498db; }
+#footer a:visited { color: #3498db; }
+#footer a:hover { color:#2ecc71; }
+#footer a { text-decoration: none; text-shadow: 0 0 8px;}
