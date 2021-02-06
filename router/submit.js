@@ -21,8 +21,8 @@ router.post('/submit',(req,res)=>{       //submit 접속 세션 체크
     const nas = (req.body.nas == "true") ? "true" : "false";
     const wiki = (req.body.wiki == "true") ? "true" : "false";
  
-    if(check(username, userid,email)){
-        const message = `username: ${username}\nuserid: ${userid}\nemail:${email}\nnas: ${nas}\nwiki: ${wiki}`;
+    if(check(username, userid, email)){
+        const message = `username: ${username}\nuserid: ${userid}\nemail: ${email}\nnas: ${nas}\nwiki: ${wiki}`;
         bot.sendBot(message,"계정 신청");
 
         /* ======Database Connect===== */
