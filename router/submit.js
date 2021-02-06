@@ -12,11 +12,12 @@ router.post('/submit',(req,res)=>{       //submit 접속 세션 체크
 
     const username = req.body.username;
     const userid = req.body.userid;
+    const email = req.body.email;
     const nas = (req.body.nas == "true") ? "true" : "false";
     const wiki = (req.body.wiki == "true") ? "true" : "false";
  
-    if(check(username, userid)){
-        const message = `username: ${username}\nuserid: ${userid}\nnas: ${nas}\nwiki: ${wiki}`;
+    if(check(username, userid, email)){
+        const message = `username: ${username}\nuserid: ${userid}\nemail: ${email}\nnas: ${nas}\nwiki: ${wiki}`;
         bot.sendBot(message,"계정 신청");
 
         //TODO DB에 데이터 넣기
@@ -31,8 +32,8 @@ router.post('/submit',(req,res)=>{       //submit 접속 세션 체크
     }
 })
 
-function check(username, userid){
-    if((username.length + userid.length) == 0){
+function check(username, userid, email){
+    if((username.length + userid.length + email.length) == 0){
         return false;
     }
     return true;
