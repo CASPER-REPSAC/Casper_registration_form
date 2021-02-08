@@ -62,7 +62,7 @@ client.on('message', function(msg){
                             let messageApply= '\`미승인 계정 목록\n┌──────────────┬───────────────┬─────┬─────┬─────┐\n│username      │userid         │nas  │wiki │auth │\n├──────────────┼───────────────┼─────┼─────┼─────┤\n';
                             console.log(itemArr);
                             for(let i = 0;i<itemArr.length;i++){
-                                console.log('username: '+itemArr[i].username +'    userid: '+itemArr[i].userid);
+                                //console.log('username: '+itemArr[i].username +'    userid: '+itemArr[i].userid);
                                 messageApply = messageApply + '│'+ sliceByByte(Rpad(itemArr[i].username,14,'  '),14) +'│'+ Rpad(itemArr[i].userid,15,' ')+'│'+Rpad(itemArr[i].nas,5,' ')+'│'+Rpad(itemArr[i].wiki,5,' ')+'│'+Rpad(itemArr[i].done,5,' ')+'│'+'\n';
                                 if(i === 8){
                                     messageApply = messageApply + '└──────────────┴───────────────┴─────┴─────┴─────┘\`'
