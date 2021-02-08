@@ -24,10 +24,23 @@ client.on('ready', function(){
 
 client.on('message', function(msg){
     if(msg.content[0] === '>'){ // '>' is command
-        msg.reply("console...");
-    
+        if(msg.content.slice(1)==='help'){
+            msg.reply(">apply : nas, wiki 미승인 계정 확인\n\t옵션 -d [True/False] : 미승인 계정 승인 여부 변경\n");
+        }
         if(msg.content.slice(1)==='apply'){
-            msg.reply("준비 중");
+            MongoClient.connect("mongodb://127.0.0.1:27017/", (err,db)=>{
+                let alarmDB = db.db('casperbot');
+                alarmDB.collection("users", (err, users)=>{
+                    users.find((err,items)=>{
+                        items.toArray((err,itemArr)=>{
+                            const messageD = itemArr.toString();
+                            console.log(itemArr);
+                            console.log(messageD);
+                            msg.reply(messageD, "미승인 목록");
+                        });
+                    });                    
+                });
+            });
         }
     }
 });
