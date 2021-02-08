@@ -2,9 +2,12 @@ const Discord = require('discord.js');
 const config = require('./config/token.json');
 const client = new Discord.Client();
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
-const mongoose = require("mongoose");
 
-/*=====Router Modules=====*/
+/*=====Database Modules=====*/
+const mongoose = require("mongoose");
+const {MongoClient} = require('mongodb');
+//const dbClient = new MongoClient();
+//const Server = require("mongodb").Server;
 
 const sendBot = (title, message) => {
     const embed = new Discord.MessageEmbed()
