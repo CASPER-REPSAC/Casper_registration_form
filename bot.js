@@ -46,6 +46,7 @@ function Rpad(str,padLen,padStr){
 
 client.on('ready', function(){
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setActivity(">help   |Casper"); 
 });
 
 client.on('message', function(msg){
