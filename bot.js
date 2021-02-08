@@ -52,16 +52,17 @@ client.on('ready', function(){
 client.on('message', function(msg){
     if(msg.content[0] === '>'){ //'msg.content' is command in this instance
         if(msg.content.slice(1)==='help'){
-            msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n│help   │Print Commands List             │Option │\n│apply  │Find unauthorized accounts      │d      │\n└───────┴────────────────────────────────┴───────┘\`"); //50
+            msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n│help   │Print Commands List             │Option │\n│account│Find unauthorized accounts      │       │\n└───────┴────────────────────────────────┴───────┘\`"); //50
         }
-        if(msg.content.slice(1)==='apply'){
+        if(msg.content.slice(1)==='account'){
             MongoClient.connect("mongodb://127.0.0.1:27017/", (err,db)=>{
                 let alarmDB = db.db('casperbot');
                 alarmDB.collection("users", (err, users)=>{
                     users.find((err,items)=>{
                         items.toArray((err,itemArr)=>{
-                            let messageApply= '\`미승인 계정 목록\n┌──────────────┬───────────────┬─────┬─────┬─────┐\n│username      │userid         │nas  │wiki │auth │\n├──────────────┼───────────────┼─────┼─────┼─────┤\n';
+                            let messageApply= '\`계정 목록\n┌──────────────┬───────────────┬─────┬─────┬─────┐\n│username      │userid         │nas  │wiki │auth │\n├──────────────┼───────────────┼─────┼─────┼─────┤\n';
                             console.log(itemArr);
+                            console.log(itemArr.length);
                             for(let i = 0;i<itemArr.length;i++){
                                 //console.log('username: '+itemArr[i].username +'    userid: '+itemArr[i].userid);
                                 messageApply = messageApply + '│'+ sliceByByte(Rpad(itemArr[i].username,14,'  '),14) +'│'+ Rpad(itemArr[i].userid,15,' ')+'│'+Rpad(itemArr[i].nas,5,' ')+'│'+Rpad(itemArr[i].wiki,5,' ')+'│'+Rpad(itemArr[i].done,5,' ')+'│'+'\n';
