@@ -64,7 +64,7 @@ client.on('message', function(msg){
                             for(let i = 0;i<itemArr.length;i++){
                                 //console.log('username: '+itemArr[i].username +'    userid: '+itemArr[i].userid);
                                 messageApply = messageApply + '│'+ sliceByByte(Rpad(itemArr[i].username,14,'  '),14) +'│'+ Rpad(itemArr[i].userid,15,' ')+'│'+Rpad(itemArr[i].nas,5,' ')+'│'+Rpad(itemArr[i].wiki,5,' ')+'│'+Rpad(itemArr[i].done,5,' ')+'│'+'\n';
-                                if(i === 8){
+                                if(i === itemArr.length-1){
                                     messageApply = messageApply + '└──────────────┴───────────────┴─────┴─────┴─────┘\`'
                                     msg.reply(messageApply);
                                     console.log(messageApply);
