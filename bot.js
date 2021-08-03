@@ -67,7 +67,8 @@ client.on('message', async(msg)=>{
             msg.channel.send(embed)
         }
         if(msg.content.slice(1)==='help'){
-            msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n│help   │Print Commands List             │Option │\n│account│Find all apply accounts         │       │\n└───────┴────────────────────────────────┴───────┘\`"); //50
+            const commandlists = "│help   │Print Commands List             │Option │\n│account│Find all apply accounts         │       │\n│ladder │Randomize in voice channel      │       │\n"
+            msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n"+commandlists+"└───────┴────────────────────────────────┴───────┘\`"); //50
         }
         if(msg.content.slice(1)==='account'){
             MongoClient.connect("mongodb://127.0.0.1:27017/", (err,db)=>{
