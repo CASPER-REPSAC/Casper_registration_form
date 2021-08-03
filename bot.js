@@ -1,6 +1,7 @@
+const {Client, MessageEmbed} = require('discord.js');
 const Discord = require('discord.js');
+const client = new Client();
 const config = require('./config/token.json');
-const client = new Discord.Client();
 const webhookClient = new Discord.WebhookClient(config.webhookID, config.webhookToken);
 
 /*=====Database Modules=====*/
@@ -43,30 +44,46 @@ function Rpad(str,padLen,padStr){
     return str;
 }
 
-
-client.on('ready', function(){
+client.on('ready', async()=>{
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity(">help   |Casper"); 
+    client.user.setActivity({type:'LISTENING',name:">help | 명령어확인"}); 
 });
 
-client.on('message', function(msg){
+client.on('message', async(msg)=>{
     if(msg.content[0] === '>'){ //'msg.content' is command in this instance
-        if(msg.content.slice(1)==='help'){
-            msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n│help   │Print Commands List             │Option │\n│apply  │Find unauthorized accounts      │d      │\n└───────┴────────────────────────────────┴───────┘\`"); //50
+        if(msg.content.slice(1)==='ladder'){
+            if (!msg.member.voice.channel) {
+                return msg.channel.send('First you need to join a voice channel');
+            }
+            let members = msg.member.voice.channel.members
+            let randomize = members
+                .map(a=>([Math.random(),a]))
+                .sort((a,b) => a[0]-b[0])
+                .map(a => a[1])
+
+            console.log(randomize)
+
+            const embed = new MessageEmbed()
+                .setTitle(`Member list of ${msg.member.voice.channel.name} channel\n총 인원 : ${randomize.length} 명`)
+                .setDescription(randomize.map((i) => `${randomize.indexOf(i) + 1}. ${i}`).join("\n"))
+            msg.channel.send(embed)
         }
-        if(msg.content.slice(1)==='apply'){
+        if(msg.content.slice(1)==='help'){
+            msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n│help   │Print Commands List             │Option │\n│account│Find all apply accounts         │       │\n└───────┴────────────────────────────────┴───────┘\`"); //50
+        }
+        if(msg.content.slice(1)==='account'){
             MongoClient.connect("mongodb://127.0.0.1:27017/", (err,db)=>{
                 let alarmDB = db.db('casperbot');
                 alarmDB.collection("users", (err, users)=>{
                     users.find((err,items)=>{
                         items.toArray((err,itemArr)=>{
-                            let messageApply= '\`미승인 계정 목록\n┌──────────────┬───────────────┬─────┬─────┬─────┐\n│username      │userid         │nas  │wiki │auth │\n├──────────────┼───────────────┼─────┼─────┼─────┤\n';
+                            let messageApply= '\`신청 계정 목록\n┌────────────┬───────────────┬─────┬─────┬─────┐\n│username    │userid         │nas  │wiki │auth │\n├────────────┼───────────────┼─────┼─────┼─────┤\n';
                             console.log(itemArr);
                             for(let i = 0;i<itemArr.length;i++){
                                 //console.log('username: '+itemArr[i].username +'    userid: '+itemArr[i].userid);
                                 messageApply = messageApply + '│'+ sliceByByte(Rpad(itemArr[i].username,14,'  '),14) +'│'+ Rpad(itemArr[i].userid,15,' ')+'│'+Rpad(itemArr[i].nas,5,' ')+'│'+Rpad(itemArr[i].wiki,5,' ')+'│'+Rpad(itemArr[i].done,5,' ')+'│'+'\n';
                                 if(i === itemArr.length-1){
-                                    messageApply = messageApply + '└──────────────┴───────────────┴─────┴─────┴─────┘\`'
+                                    messageApply = messageApply + '└────────────┴───────────────┴─────┴─────┴─────┘\`'
                                     msg.reply(messageApply);
                                     console.log(messageApply);
                                 }
