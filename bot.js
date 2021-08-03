@@ -61,8 +61,6 @@ client.on('message', async(msg)=>{
                 .sort((a,b) => a[0]-b[0])
                 .map(a => a[1])
 
-            console.log(randomize)
-
             const embed = new MessageEmbed()
                 .setTitle(`Member list of ${msg.member.voice.channel.name} channel\n총 인원 : ${randomize.length} 명`)
                 .setDescription(randomize.map((i) => `${randomize.indexOf(i) + 1}. ${i}`).join("\n"))
