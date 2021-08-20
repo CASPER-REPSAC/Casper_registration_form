@@ -57,12 +57,18 @@ client.on('message', async(msg)=>{
             }
             let members = msg.member.voice.channel.members
             let randomize = members
-                .map(a=>([Math.random(),a]))
-                .sort((a,b) => a[0]-b[0])
-                .map(a => a[1])
+                    .map(a=>([Math.random(),a]))
+                    .sort((a,b) => a[0]-b[0])
+                    .map(a => a[1])
+            let k = 0;
+            for(let i = 0 ; i < parseInt(Math.random()*10);i++){
+                let ranNum = Math.random()
+                randomize = randomize.map(a=>([ranNum,a])).sort((a,b) => a[0]-b[0]).map(a => a[1])
+                k = ranNum
+            }
 
             const embed = new MessageEmbed()
-                .setTitle(`(사다리 기능은 현재 프로토타입 입니다. 두 번 사용한 결과를 활용하세요.)\n현재 채널 : ${msg.member.voice.channel.name}\n총 인원 : ${randomize.length} 명\n 순서가 무작위로 결정되었습니다.`)
+                .setTitle(`현재 채널 : ${msg.member.voice.channel.name}\n총 인원 : ${randomize.length} 명\n무작위 수 ${parseInt(k*100)}에 의해 순서를 결정했습니다.\n`)
                 .setDescription(randomize.map((i) => `${randomize.indexOf(i) + 1}. ${i}`).join("\n"))
             msg.channel.send(embed)
         }
