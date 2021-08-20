@@ -60,15 +60,13 @@ client.on('message', async(msg)=>{
                     .map(a=>([Math.random(),a]))
                     .sort((a,b) => a[0]-b[0])
                     .map(a => a[1])
-            let k = 0;
-            for(let i = 0 ; i < parseInt(Math.random()*10);i++){
-                let ranNum = Math.random()
-                randomize = randomize.map(a=>([ranNum,a])).sort((a,b) => a[0]-b[0]).map(a => a[1])
-                k = ranNum
-            }
+            let randomize = members
+                    .map(a=>([Math.random(),a]))
+                    .sort((a,b) => a[0]-b[0])
+                    .map(a => a[1])
 
             const embed = new MessageEmbed()
-                .setTitle(`현재 채널 : ${msg.member.voice.channel.name}\n총 인원 : ${randomize.length} 명\n무작위 수 ${parseInt(k*100)}에 의해 순서를 결정했습니다.\n`)
+                .setTitle(`현재 채널 : ${msg.member.voice.channel.name}\n총 인원 : ${randomize.length} 명\n무작위 수에 의해 순서를 결정했습니다.\n`)
                 .setDescription(randomize.map((i) => `${randomize.indexOf(i) + 1}. ${i}`).join("\n"))
             msg.channel.send(embed)
         }
