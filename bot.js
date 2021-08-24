@@ -51,6 +51,36 @@ client.on('ready', async()=>{
 
 client.on('message', async(msg)=>{
     if(msg.content[0] === '>'){ //'msg.content' is command in this instance
+	 if(msg.content.slice(1)==='dice'){
+            let number = Math.random()*100
+            number = number.toFixed(0)
+            let comment = "아악!"
+            if(number <= 100 && number > 90){
+                comment = "진짜 미쳤습니다!! 축하합니다! "
+            }
+            else if(number <= 90 && number > 80){
+                comment = "보람찬 결과네요!"
+            }
+            else if(number <= 80 && number > 60){
+                comment = "별 기대도 안했는데 "
+            }
+            else if(number <= 60 && number > 40){
+                comment = "온 힘을 다한 결과가 이겁니다."
+            }
+            else if(number <= 40 && number > 20){
+                comment = "운이 좋진 않네요... "
+            }
+            else if(number <= 20 && number > 10){
+                comment = "집도 뛰쳐나와 주사위를 던져 "
+            }
+            else{
+                comment = "진짜 던진 척만 한건지"
+            }
+            const embed = new MessageEmbed()
+                .setTitle(`${comment} ${number} 이(가) 나왔습니다.\n`)
+                .setColor('#ff5b97');
+            msg.channel.send(embed)
+        }
         if(msg.content.slice(1)==='ladder'){
             if (!msg.member.voice.channel) {
                 return msg.channel.send('First you need to join a voice channel');
