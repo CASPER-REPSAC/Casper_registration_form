@@ -51,30 +51,172 @@ client.on('ready', async()=>{
 
 client.on('message', async(msg)=>{
     if(msg.content[0] === '>'){ //'msg.content' is command in this instance
-	 if(msg.content.slice(1)==='dice'){
+        if(msg.content.slice(1)==='dice'){
             let number = Math.random()*100
             number = number.toFixed(0)
+            let chooser = Math.random() * 100
+            chooser = chooser.toFixed(0)
             let comment = "아악!"
             if(number <= 100 && number > 90){
-                comment = "진짜 미쳤습니다!! 축하합니다! "
+                if(chooser <= 100 && chooser > 90){
+                    comment = "진짜 미쳤습니다!! 축하합니다! "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "눈으로 봐도 믿기지 않습니다!! "
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "미모의 신에는 차은우가 있다면 주사위은 당신입니다! "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "정말 대단합니다! "
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "이거... 진짜 맞나요? "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "떡상!!! "
+                }
+                else{
+                    comment = "옆 사람 몰래 주사위를 두 번 굴려 "
+                }
             }
             else if(number <= 90 && number > 80){
-                comment = "보람찬 결과네요!"
+                if(chooser <= 100 && chooser > 90){
+                    comment = "대단합니다! "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "보람찬 결과네요!"
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "학교를 출퇴하고 주사위를 던져 "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "이 정도면 좋은데요? "
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "상위 23% 정도? "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "전 재산을 바쳐 주사위를 던져 "
+                }
+                else{
+                    comment = "부리또 2번세트를 마다하고 주사위를 던져 "
+                }
             }
             else if(number <= 80 && number > 60){
-                comment = "별 기대도 안했는데 "
+                if(chooser <= 100 && chooser > 90){
+                    comment = "나쁘지 않습니다. "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "ㅍㅌㅊ... "
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "별 기대도 안했는데 "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "학점을 제물로 바쳐 "
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "평균은 넘었습니다! "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "앞 사람보다 조금 더 열심히 던져 "
+                }
+                else{
+                    comment = "앞 사람 대신 던져 "
+                }
             }
             else if(number <= 60 && number > 40){
-                comment = "온 힘을 다한 결과가 이겁니다."
+                if(chooser <= 100 && chooser > 90){
+                    comment = "당신의 능력 10%를 사용하여 "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "주사위를 조작하여 "
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "반 타작은 했네요. "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "온 힘을 다한 결과가 이겁니다."
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "뭐... 봐줄만 한건지... "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "노력은 했나요?  "
+                }
+                else{
+                    comment = "...뭐... "
+                }
             }
             else if(number <= 40 && number > 20){
-                comment = "운이 좋진 않네요... "
+                if(chooser <= 100 && chooser > 90){
+                    comment = "수능도 포기하고 "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "기말고사도 "
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "지각했지만 신경쓰지않고 주사위를 던져 "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "과제도 내팽겨치고 "
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "인생은 쉽지 않습니다... "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "집도 뛰쳐나와 주사위를 던져 "
+                }
+                else{
+                    comment = "주사위 대신 컴퓨터를 던져 "
+                }
             }
             else if(number <= 20 && number > 10){
-                comment = "집도 뛰쳐나와 주사위를 던져 "
+                if(chooser <= 100 && chooser > 90){
+                    comment = "그럴 수 있습니다. "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "모니터를 던져 "
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "지갑을 연못에 빠뜨렸더니 "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "당신의 능력 50%를 사용하여 "
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "다음엔 더 좋은 결과가 있겠죠... "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "집도 뛰쳐나와 주사위를 던져 "
+                }
+                else{
+                    comment = "진짜 던진 척만 한건지"
+                }
             }
             else{
-                comment = "진짜 던진 척만 한건지"
+                if(chooser <= 100 && chooser > 90){
+                    comment = "ㅋㅋㅋㅅㄱ "
+                }
+                else if(chooser <= 90 && chooser > 80){
+                    comment = "와~ 정말 데단헤~! "
+                }
+                else if(chooser <= 80 && chooser > 60){
+                    comment = "잠이나 자십쇼  "
+                }
+                else if(chooser <= 60 && chooser > 40){
+                    comment = "ㅉㅉ "
+                }
+                else if(chooser <= 40 && chooser > 20){
+                    comment = "에휴...  "
+                }
+                else if(chooser <= 20 && chooser > 10){
+                    comment = "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ "
+                }
+                else{
+                    comment = "진짜 던진 척만 한건지"
+                }
             }
             const embed = new MessageEmbed()
                 .setTitle(`${comment} ${number} 이(가) 나왔습니다.\n`)
@@ -90,10 +232,6 @@ client.on('message', async(msg)=>{
                     .map(a=>([Math.random(),a]))
                     .sort((a,b) => a[0]-b[0])
                     .map(a => a[1])
-            let randomize = members
-                    .map(a=>([Math.random(),a]))
-                    .sort((a,b) => a[0]-b[0])
-                    .map(a => a[1])
 
             const embed = new MessageEmbed()
                 .setTitle(`현재 채널 : ${msg.member.voice.channel.name}\n총 인원 : ${randomize.length} 명\n무작위 수에 의해 순서를 결정했습니다.\n`)
@@ -101,7 +239,7 @@ client.on('message', async(msg)=>{
             msg.channel.send(embed)
         }
         if(msg.content.slice(1)==='help'){
-            const commandlists = "│help   │Print Commands List             │Option │\n│account│Find all apply accounts         │       │\n│ladder │Randomize in voice channel      │       │\n"
+            const commandlists = "│help   │Print Commands List             │Option │\n│account│Find all apply accounts         │       │\n│ladder │Randomize in voice channel      │       │\n│dice   │Random Number  0~100            │       │\n"
             msg.reply("\`명령어 목록\n┌───────┬────────────────────────────────┬───────┐\n"+commandlists+"└───────┴────────────────────────────────┴───────┘\`"); //50
         }
         if(msg.content.slice(1)==='account'){
