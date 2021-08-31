@@ -65,7 +65,7 @@ client.on('message', async(msg)=>{
                     comment = "눈으로 봐도 믿기지 않습니다!! "
                 }
                 else if(chooser <= 80 && chooser > 60){
-                    comment = "미모의 신에는 차은우가 있다면 주사위은 당신입니다! "
+                    comment = "미모의 신에는 차은우, 미모의 여신에는 조이가 있다면 주사위의 신은 당신입니다! "
                 }
                 else if(chooser <= 60 && chooser > 40){
                     comment = "정말 대단합니다! "
@@ -146,7 +146,7 @@ client.on('message', async(msg)=>{
                     comment = "노력은 했나요?  "
                 }
                 else{
-                    comment = "...뭐... "
+                    comment = "쩝... "
                 }
             }
             else if(number <= 40 && number > 20){
