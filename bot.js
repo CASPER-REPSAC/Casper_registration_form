@@ -88,7 +88,7 @@ client.on('message', async(msg)=>{
                     comment = "보람찬 결과네요!"
                 }
                 else if(chooser <= 80 && chooser > 60){
-                    comment = "학교를 출퇴하고 주사위를 던져 "
+                    comment = "학교를 출튀하고 주사위를 던져 "
                 }
                 else if(chooser <= 60 && chooser > 40){
                     comment = "이 정도면 좋은데요? "
@@ -114,7 +114,7 @@ client.on('message', async(msg)=>{
                     comment = "별 기대도 안했는데 "
                 }
                 else if(chooser <= 60 && chooser > 40){
-                    comment = "학점을 제물로 바쳐 "
+                    comment = "주사위를 던져 "
                 }
                 else if(chooser <= 40 && chooser > 20){
                     comment = "평균은 넘었습니다! "
@@ -151,10 +151,10 @@ client.on('message', async(msg)=>{
             }
             else if(number <= 40 && number > 20){
                 if(chooser <= 100 && chooser > 90){
-                    comment = "수능도 포기하고 "
+                    comment = "생일 축하합니다! "
                 }
                 else if(chooser <= 90 && chooser > 80){
-                    comment = "기말고사도 "
+                    comment = "능력의 200%를 사용하여 "
                 }
                 else if(chooser <= 80 && chooser > 60){
                     comment = "지각했지만 신경쓰지않고 주사위를 던져 "
